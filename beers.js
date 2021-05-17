@@ -42,8 +42,10 @@ function showPreviousSearches() {
   let input = document.getElementById('search')
 
   removeAllChildren(list)
+  let filteredItems = 0
   searches.forEach((query) => {
     if (!query.startsWith(input.value)) {
+      filteredItems++
       return
     }
     let item = document.createElement('li')
@@ -51,6 +53,9 @@ function showPreviousSearches() {
     item.addEventListener('click', onQueryClicked)
     list.appendChild(item)
   })
+  if (searches.length === filteredItems) {
+    document.getElementById('previous').setAttribute('class', 'hidden')
+  }
 }
 
 function onQueryClicked(e) {
