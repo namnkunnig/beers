@@ -62,7 +62,12 @@ body {
   top: 23px;
   border-radius: 0 0 10px 10px;
   list-style-type: none;
-  padding: 0;
+  padding: 0 0 15px 0;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+}
+
+#previous li {
+  padding: 5px 2px;
 }
 
 #previous li:hover {

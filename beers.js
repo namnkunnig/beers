@@ -7,6 +7,7 @@ function initialize() {
   search.addEventListener('input', onSearchInput)
   let oldSearches = window.sessionStorage.getItem('searches')
   if (oldSearches) searches = JSON.parse(oldSearches)
+
   if (window.location.hash) {
     document.getElementById('search').value = window.location.hash.replace('#', '')
   }
@@ -24,7 +25,6 @@ function onSearchChanged(e) {
     searches.push(query)
   }
   window.sessionStorage.setItem('searches', JSON.stringify(searches))
-  console.log(searches)
   fetchBeers(query)
 }
 
@@ -49,7 +49,7 @@ function showPreviousSearches() {
       return
     }
     let item = document.createElement('li')
-    item.innerHTML = `<li>${query}</li>`
+    item.innerHTML = `${query}`
     item.addEventListener('click', onQueryClicked)
     list.appendChild(item)
   })
