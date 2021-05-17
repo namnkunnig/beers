@@ -20,7 +20,7 @@ function onSearchChanged(e) {
   window.location.hash = query
   document.getElementById('previous').setAttribute('class', 'hidden')
 
-  if (!searches.includes(query)) {
+  if (!searches.includes(query) && query !== '') {
     if (searches.length > 4) searches.shift()
     searches.push(query)
   }
